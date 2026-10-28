@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Jayaraj reddy",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -0.6, "attrs": {} },
+    { "type": "wokwi-led", "id": "led1", "top": -80.4, "left": 99.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -62.4,
+      "left": 18.65,
+      "rotate": 180,
+      "attrs": { "value": "4700" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -84,
+      "left": 270.6,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-ds18b20", "id": "temp1", "top": -49.13, "left": -63.12, "attrs": {} }
+  ],
+  "connections": [
+    [ "temp1:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "temp1:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "temp1:DQ", "uno:2", "green", [ "v0" ] ],
+    [ "r1:2", "temp1:DQ", "green", [ "v0" ] ],
+    [ "r1:1", "uno:5V", "green", [ "v0" ] ],
+    [ "bz1:2", "uno:9", "green", [ "v0" ] ],
+    [ "bz1:1", "uno:GND.3", "green", [ "v0" ] ],
+    [ "led1:A", "uno:8", "green", [ "v0" ] ],
+    [ "led1:C", "uno:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
